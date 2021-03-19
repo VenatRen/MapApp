@@ -3,10 +3,12 @@ import React from "react";
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import Main from "./Main";
+import MapItem from "./MapItem";
+import Register from "./Register";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
-const AppStackNavigator = () => {
+const AppStackNavigator = (props) => {
 
    
     return (
@@ -22,6 +24,13 @@ const AppStackNavigator = () => {
             <Screen 
                 name="Main"
                 component={Main}/>
+            <Screen 
+                name="MapItem"
+                component={MapItem}/>
+            <Screen 
+                name="Register"
+                component={Register}/>
+            
             
         </Navigator>
     );

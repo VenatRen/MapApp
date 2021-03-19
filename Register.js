@@ -7,7 +7,7 @@ import { Button, StyleSheet, Text, View, TextInput, } from 'react-native';
 
 
 
-export default function Main(props) {
+export default function Register(props) {
 
   const {navigation} = props;
   const [name, setName] = useState('');
@@ -15,18 +15,15 @@ export default function Main(props) {
   
     return (
       <View style={styles.container}>
-        <Text>Login</Text>
+        <Text>Register</Text>
         <StatusBar style="auto" />
         <View style={styles.input}><TextInput value={name} onChangeText={ (name)=>{setName(name)} } placeholderTextColor="red" placeholder="User name"/></View>
         <View style={styles.input}><TextInput value={password} onChangeText={ (password)=>{setPassword(password)} } placeholderTextColor="red" placeholder="Password"/></View>
+        <View style={styles.input}><TextInput value={password} onChangeText={ (password)=>{setPassword(password)} } placeholderTextColor="red" placeholder="Confirm password"/></View>
         <Button
           title = "Confirm"
           style={styles.button}
-          onPress ={()=> navigation.navigate('MapItem')}
-        />
-        <Button
-          title = "Register"
-          onPress ={()=> navigation.navigate('Register')}
+          onPress ={()=> navigation.navigate('Main')}
         />
       </View>
     );

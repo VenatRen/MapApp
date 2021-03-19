@@ -7,27 +7,22 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import AppStackNavigator from "./navigation";
 import { stateContext, dispatchContext } from "./contexts";
-import reducer from "./reducer";
+import OurToast from "./components/OurToast";
+import { reducer, initialState } from "./reducer";
+
 
 
 /**Контейнер приложения */
 const AppContainer = () => {
 	return (
-		<NavigationContainer>
-			<AppStackNavigator/>
-		</NavigationContainer>
+				<NavigationContainer>
+					<AppStackNavigator/>
+				</NavigationContainer>
 	);	
 }
 
 
-const initialState = {
-
-
-};
-
-
-
-const App = () => {
+const App = (props) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -35,6 +30,7 @@ const App = () => {
 		<stateContext.Provider value={state}>
 			<dispatchContext.Provider value={dispatch}>
 				<AppContainer/>
+				<OurToast/>
 			</dispatchContext.Provider>
 		</stateContext.Provider>
 	);
