@@ -2,7 +2,7 @@
 import React from "react";
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
-import Main from "./Main";
+import Login from "./Login";
 import MapItem from "./MapItem";
 import Register from "./Register";
 
@@ -22,8 +22,8 @@ const AppStackNavigator = (props) => {
                 headerHideShadow: true,
             }}>
             <Screen 
-                name="Main"
-                component={Main}/>
+                name="Login"
+                component={Login}/>
             <Screen 
                 name="MapItem"
                 component={MapItem}/>
