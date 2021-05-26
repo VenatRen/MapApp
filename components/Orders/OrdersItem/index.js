@@ -8,8 +8,8 @@ const OrdersItem = (props) => {
     const { navigation, onPress } = props;
 
     return (
-        <View>
-            <OurText style={styles.fieldText}>Order №1</OurText>
+        <View style={styles.mainContainer}>
+            <OurText style={styles.fieldText}>Order №2421</OurText>
             <View style={styles.itemContainer}>
                 <View style={styles.infoContainer}>
                     <OurText style={styles.text}>От: Вася Пупкин</OurText>

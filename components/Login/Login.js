@@ -31,16 +31,18 @@ export default function Login(props) {
           onValidate={validateForm}
           model={[password, setPassword]} />
       </View>
-      <TouchableOpacity
-        title="Confirm"
-        style={styles.button}
-        onPress={() => navigation.navigate('Orders')}
-      ><Text>Confirm</Text></TouchableOpacity>
-      <TouchableOpacity
-        title="Register"
-        style={styles.button}
-        onPress={() => navigation.navigate('Register')}
-      ><Text>Register</Text></TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          title="Confirm"
+          style={styles.button}
+          onPress={() => navigation.navigate('Orders')}
+        ><Text>Confirm</Text></TouchableOpacity>
+        <TouchableOpacity
+          title="Register"
+          style={styles.button}
+          onPress={() => navigation.navigate('Register')}
+        ><Text>Register</Text></TouchableOpacity>
+      </View>
     </View>
   );
 }

@@ -16,7 +16,6 @@ import { STORE_ADDRESS } from "./utils/config"
 
 const MapItem = () => {
 
-  const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
 
@@ -40,13 +39,15 @@ const MapItem = () => {
 
   const dispatch = useContext(dispatchContext);
 
+  const username = "admin"
+
 
 
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestPermissionsAsync();
       if (status == 'granted') {
-        fetch(`${STORE_ADDRESS}osmand/?lat=${latitude}&lon=${longitude}&timestamp={2}&altitude={4}&speed={5}&bearing={6}&username=alx33&key=bfb0940d`)
+        fetch(`${STORE_ADDRESS}osmand/?lat=${latitude}&lon=${longitude}&timestamp={2}&altitude={4}&speed={5}&bearing={6}&username=alix33&key=bfb0940d`)
       }
       else {
         const toast = {
@@ -91,44 +92,37 @@ const MapItem = () => {
   return (
     <View style={styles.container}>
       {
-
         loaded ?
-            <MapView
-              style={{ width: "100%", height: "100%" }}
-              initialRegion={region}
-              onRegionChangeComplete={(reg) => setRegion(reg)}
-
-            >
-              <Marker
-                title="mytitle"
-                description="mydescription"
-                coordinate={{ latitude, longitude }}
-              />
-              <UrlTile
-                /**
-                 * The url template of the tile server. The patterns {x} {y} {z} will be replaced at runtime
-                 * For example, http://c.tile.openstreetmap.org/{z}/{x}/{y}.png
-                 */
-                urlTemplate={urlTemplate}
-                /**
-                 * The maximum zoom level for this tile overlay. Corresponds to the maximumZ setting in
-                 * MKTileOverlay. iOS only.
-                 */
-                maximumZ={19}
-                /**
-                 * flipY allows tiles with inverted y coordinates (origin at bottom left of map)
-                 * to be used. Its default value is false.
-                 */
-                flipY={false}
-              />
-
-
-            </MapView>
+          <MapView
+            style={{ width: "100%", height: "100%" }}
+            initialRegion={region}
+            onRegionChangeComplete={(reg) => setRegion(reg)}
+          >
+            <Marker
+              title="mytitle"
+              description="mydescription"
+              coordinate={{ latitude, longitude }}
+            />
+            <UrlTile
+              /**
+               * The url template of the tile server. The patterns {x} {y} {z} will be replaced at runtime
+               * For example, http://c.tile.openstreetmap.org/{z}/{x}/{y}.png
+               */
+              urlTemplate={urlTemplate}
+              /**
+               * The maximum zoom level for this tile overlay. Corresponds to the maximumZ setting in
+               * MKTileOverlay. iOS only.
+               */
+              maximumZ={19}
+              /**
+               * flipY allows tiles with inverted y coordinates (origin at bottom left of map)
+               * to be used. Its default value is false.
+               */
+              flipY={false}
+            />
+          </MapView>
           : <></>
-
-
       }
-
     </View>
   );
 

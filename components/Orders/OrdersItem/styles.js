@@ -2,15 +2,10 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     mainContainer: {
-        height: "100%",
-        paddingVertical: 20,
-        paddingHorizontal: 8,
-        backgroundColor: "#FF7373"
+        marginBottom: 5,
+        marginTop: 5,
     },
     infoContainer: {
-        borderTopWidth: .5,
-        borderBottomWidth: .5,
-        borderColor: "#fff5",
         width: "60%",
     },
     itemContainer: {
@@ -31,7 +26,7 @@ const styles = StyleSheet.create({
         padding: 5,
         borderWidth: .5,
         borderRadius: 5,
-        borderColor: "green",
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -41,15 +36,15 @@ const styles = StyleSheet.create({
         padding: 5,
         borderWidth: .5,
         borderRadius: 5,
-        borderColor: "red",
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
     showContainer: {
         padding: 8,
-        borderTopWidth: .5,
-        borderBottomWidth: .5,
-        borderColor: "orange",
+        borderWidth: .5,
+        borderRadius: 10,
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
