@@ -2,15 +2,16 @@
 import React from "react";
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
-import Login from "./Login";
+import Login from "./components/Login/Login";
 import MapItem from "./MapItem";
-import Register from "./Register";
+import Register from "./components/Register/Register";
+import Orders from "./components/Orders/Orders"
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const AppStackNavigator = (props) => {
 
-   
+
     return (
         <Navigator
             initialRouteName="Main"
@@ -21,17 +22,20 @@ const AppStackNavigator = (props) => {
                 tabBarVisible: true,
                 headerHideShadow: true,
             }}>
-            <Screen 
+            <Screen
                 name="Login"
-                component={Login}/>
-            <Screen 
+                component={Login} />
+            <Screen
                 name="MapItem"
-                component={MapItem}/>
-            <Screen 
+                component={MapItem} />
+            <Screen
                 name="Register"
-                component={Register}/>
-            
-            
+                component={Register} />
+            <Screen
+                name="Orders"
+                component={Orders} />
+
+
         </Navigator>
     );
 };

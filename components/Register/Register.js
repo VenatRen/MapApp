@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 
 import { StatusBar } from 'expo-status-bar';
 
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import OurTextField from "./components/OurTextField";
+import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import styles from "./styles";
+import OurTextField from "../OurTextField";
 
 
 
@@ -38,44 +39,8 @@ export default function Register(props) {
         <TouchableOpacity
             title = "Confirm"
             style={styles.button}
-            onPress ={()=> navigation.navigate('MapItem')}
+            onPress ={()=> navigation.navigate('Login')}
           ><Text>Confirm</Text></TouchableOpacity>
       </View>
     );
   }
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    input:{
-      backgroundColor: 'lightblue',
-      color: "red",
-      borderRadius: 4,
-      height: 60,
-      width:250,
-      marginBottom: 15,
-      marginTop: 10,
-    },
-    button: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'lightblue',
-      borderRadius: 4,
-      borderColor:'red',
-      borderWidth: 1,
-      marginBottom: 5,
-      marginTop: 5,
-      height:30,
-      width:100,
-    }
-  });
-  
-
-  // "олов" "воло"
-  // "фыфф" "фыыф"
-  // "фшыл" "фшылл"
