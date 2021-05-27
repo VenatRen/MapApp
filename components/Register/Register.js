@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 
 import { StatusBar } from 'expo-status-bar';
+import { HeaderBackButton, HeaderTitle} from "../../components/Header/index";
 
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import styles from "./styles";
@@ -17,6 +18,14 @@ export default function Register(props) {
   const validateForm = (value) => {
     return value.trim() !== "";
   };
+
+  
+  useLayoutEffect( () => {
+    navigation.setOptions({
+      headerLeft: (props) => <HeaderBackButton navigation={navigation}/>,
+      headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Register"}/>
+    });
+}, [navigation]);
   
     return (
       <View style={styles.container}>

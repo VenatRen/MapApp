@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker, UrlTile } from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -7,17 +7,20 @@ import { useContext } from 'react';
 import { dispatchContext } from './contexts';
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { AddToast } from "./actions";
-import { STORE_ADDRESS } from "./utils/config"
+import { STORE_ADDRESS } from "./utils/config";
+import { HeaderBackButton, HeaderTitle, HeaderProfieButton} from "./components/Header/index";
 
 
 
 
 
 
-const MapItem = () => {
+const MapItem = (props) => {
 
   const [errorMsg, setErrorMsg] = useState(null);
 
+
+  const { navigation } = props;
 
 
   const [latitude, setLatitude] = useState(44.04444);
@@ -41,6 +44,14 @@ const MapItem = () => {
 
   const username = "admin"
 
+
+  useLayoutEffect( () => {
+    navigation.setOptions({
+        headerLeft: (props) => <HeaderBackButton navigation={navigation}/>,
+        headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Map"}/>,
+        headerRight: (props) => <HeaderProfieButton navigation={navigation} />
+    });
+}, [navigation]);
 
 
   useEffect(() => {
