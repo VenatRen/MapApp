@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     mainContainer: {
-        marginBottom: 5,
-        marginTop: 5,
+        marginBottom: 15,
+        marginTop: 15,
     },
     infoContainer: {
         width: "60%",

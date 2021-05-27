@@ -1,33 +1,27 @@
-import React, { useState, useLayoutEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import { ScrollView } from 'react-native';
 import styles from "./styles";
 import OrdersItem from "./OrdersItem";
-import { HeaderBackButton, HeaderTitle, HeaderProfieButton} from "../../components/Header/index";
+import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "../../components/Header/index";
 
 const Orders = (props) => {
 
 
     const { navigation } = props;
 
-    useLayoutEffect( () => {
+    useLayoutEffect(() => {
         navigation.setOptions({
-            headerLeft: (props) => <HeaderBackButton navigation={navigation}/>,
-            headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Orders"}/>,
-            headerRight: (props) => <HeaderProfieButton navigation={navigation} />
+            headerLeft: (props) => <HeaderBackButton navigation={navigation} />,
+            headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Orders"} />,
+            headerRight: (props) => <HeaderProfieButton navigation={navigation} />,
+            headerStyle: {
+                backgroundColor: "lightblue",
+            },
         });
     }, [navigation]);
 
     return (
         <ScrollView style={styles.mainContainer}>
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
             <OrdersItem onPress={() => navigation.navigate('MapItem')} />
         </ScrollView>
     );

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { Text, View, TouchableOpacity } from 'react-native';
 import styles from "./styles";
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import OurTextField from "../OurTextField";
-import { HeaderBackButton, HeaderTitle, HeaderProfieButton} from "../../components/Header/index";
+import { HeaderTitle } from "../../components/Header/index";
 
 export default function Login(props) {
   const [name, setName] = useState('');
@@ -13,16 +13,17 @@ export default function Login(props) {
     return value.trim() !== "";
   };
 
-  useLayoutEffect( () => {
+  useLayoutEffect(() => {
     navigation.setOptions({
-        headerLeft: (props) => <HeaderBackButton navigation={navigation}/>,
-        headerCenter: (props) => <HeaderTitle navigation={navigation} title={"login"}/>
+      headerCenter: (props) => <HeaderTitle navigation={navigation} title={"login"} />,
+      headerStyle: {
+        backgroundColor: "lightblue",
+      },
     });
-}, [navigation]);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Text>Login</Text>
       <StatusBar style="auto" />
       <View style={styles.input}>
         <OurTextField placeholder="registerPageFormUsername"

@@ -1,19 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useRoute, useNavigationState } from "@react-navigation/native";
+import React from "react";
 import { View, TouchableOpacity, LayoutAnimation } from "react-native";
 import OurText from "../../components/OurText";
 import styles from "./styles.js";
-
-
-const isFirstRouteInParent = () => {
-    const route = useRoute();
-    const isFirstRouteInParent = useNavigationState(
-        state => state.routes[0].key === route.key
-    );
-
-    return isFirstRouteInParent;
-};
 
 export const HeaderBackButton = (props) => {
     const { navigation } = props;
@@ -74,30 +62,14 @@ const easeInEaseOut = LayoutAnimation.create(
 
 
 const Header = (props) => {
-    const {
-        title,
-        titleFunc,
-        showCart,
-        navigation,
-        backgroundColor,
-    } = props;
-
-    const showBack = (typeof (props.showBack) === "boolean")
-        ? props.showBack : !isFirstRouteInParent();
-
-    const state = useSelector(state => state);
-    const dispatch = useDispatch();
-
-    const goBack = (e) => {
-        navigation.goBack();
-    };
+    const { title } = props;
 
     return (
         <>
             <View style={styles.container}>
-                <HeaderBackButton/>
-                <HeaderTitle title={title}/>
-                <HeaderProfieButton/>
+                <HeaderBackButton />
+                <HeaderTitle title={title} />
+                <HeaderProfieButton />
             </View>
         </>
     );

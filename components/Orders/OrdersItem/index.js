@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, TouchableOpacity } from 'react-native';
 import OurText from "../../OurText";
 import styles from "./styles";
 
 const OrdersItem = (props) => {
 
-    const { navigation, onPress } = props;
+    const { onPress } = props;
 
     return (
         <View style={styles.mainContainer}>

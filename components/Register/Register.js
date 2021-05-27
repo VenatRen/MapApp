@@ -1,14 +1,9 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
-
+import React, {useState, useLayoutEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { HeaderBackButton, HeaderTitle} from "../../components/Header/index";
-
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import styles from "./styles";
 import OurTextField from "../OurTextField";
-
-
-
+import { HeaderBackButton, HeaderTitle} from "../../components/Header/index";
 
 export default function Register(props) {
 
@@ -23,13 +18,15 @@ export default function Register(props) {
   useLayoutEffect( () => {
     navigation.setOptions({
       headerLeft: (props) => <HeaderBackButton navigation={navigation}/>,
-      headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Register"}/>
+      headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Register"}/>,
+      headerStyle: {
+        backgroundColor: "lightblue",
+    },
     });
 }, [navigation]);
   
     return (
       <View style={styles.container}>
-        <Text>Register</Text>
         <StatusBar style="auto" />
         <View style={styles.input}>
           <OurTextField placeholder="registerPageFormUsername"

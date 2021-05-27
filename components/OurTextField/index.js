@@ -3,8 +3,8 @@ import { View, TextInput, LayoutAnimation, Platform, UIManager } from "react-nat
 import OurText from "../OurText";
 import styles from "./styles";
 
-if ( Platform.OS === "android" )
-    if ( UIManager.setLayoutAnimationEnabledExperimental )
+if (Platform.OS === "android")
+    if (UIManager.setLayoutAnimationEnabledExperimental)
         UIManager.setLayoutAnimationEnabledExperimental(true);
 
 const VALIDATE_TIME = 1100;
@@ -22,22 +22,22 @@ const OurTextField = (props) => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     };
     const onBlur = () => {
-        if ( !text ) {
+        if (!text) {
             setFocus(false);
             LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
         }
     };
     const onChangeText = (value) => {
-        if ( validateTimer ) {
+        if (validateTimer) {
             clearTimeout(validateTimer);
             setValidateTimer(null);
         }
         setText(value);
-        if ( onChange )
+        if (onChange)
             onChange(value, name);
 
-        if ( onValidate ) {
-            const timer = setTimeout( () => {
+        if (onValidate) {
+            const timer = setTimeout(() => {
                 setValid(onValidate(value, name) || false);
             }, validateTime || VALIDATE_TIME);
             setValidateTimer(timer);
@@ -47,19 +47,19 @@ const OurTextField = (props) => {
     return (
         <View style={styles.mainContainer}>
             <OurText style={[styles.placeholder,
-                isFocused ? styles.placeholderFocused : styles.placeholderUnfocused,
-                isValid ? styles.placeholderValid : styles.placeholderNotValid]} translate={true}>{placeholder}</OurText>
+            isFocused ? styles.placeholderFocused : styles.placeholderUnfocused,
+            isValid ? styles.placeholderValid : styles.placeholderNotValid]} translate={true}>{placeholder}</OurText>
             <TextInput style={[styles.textInput, isValid ? styles.textInputValid : styles.textInputNotValid]}
-                       onChangeText={onChangeText}
-                       onFocus={onFocus}
-                       onBlur={onBlur}
-                       autoCompleteType={autoCompleteType}
-                       autoCapitalize={autoCapitalize}
-                       keyboardType={keyboardType}
-                       secureTextEntry={secureTextEntry}
-                       value={text}/>
+                onChangeText={onChangeText}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                autoCompleteType={autoCompleteType}
+                autoCapitalize={autoCapitalize}
+                keyboardType={keyboardType}
+                secureTextEntry={secureTextEntry}
+                value={text} />
         </View>
-    )   
+    )
 };
 
 export default React.memo(OurTextField);
