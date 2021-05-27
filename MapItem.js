@@ -39,7 +39,7 @@ const MapItem = (props) => {
 
   const dispatch = useContext(dispatchContext);
 
-  const username = "alix33"
+  const username = "admin"
 
 
   useLayoutEffect(() => {
@@ -58,9 +58,13 @@ const MapItem = (props) => {
 
   useEffect(() => {
     (async () => {
-      const { status } = await Location.requestPermissionsAsync();
+      const { status } = await Location.requestPermissionsAsync({ accuracy: Location.Accuracy.High });
+      const detectedLocation = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
       if (status == 'granted') {
-        fetch(`${STORE_ADDRESS}osmand/?lat=${latitude}&lon=${longitude}&timestamp={2}&altitude={4}&speed={5}&bearing={6}&username=${username}&key=bfb7248d`)
+        fetch(`${STORE_ADDRESS}osmand/?lat=${detectedLocation.coords.latitude}
+        &lon=${detectedLocation.coords.longitude}
+        &timestamp={2}&altitude={4}&speed={5}&bearing={6}
+        &username=${username}&key=bfb7248d&track=live`)
       }
       else {
         const toast = {
@@ -73,9 +77,6 @@ const MapItem = (props) => {
         dispatch(AddToast(toast, "MAP_ERROR"));
         return;
       }
-
-      const detectedLocation = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
-
 
       setLatitude(detectedLocation.coords.latitude);
       setLongitude(detectedLocation.coords.longitude);
