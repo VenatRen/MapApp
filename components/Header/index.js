@@ -42,7 +42,7 @@ export const HeaderProfieButton = (props) => {
     const { navigation } = props;
 
     const goToProfile = (e) => {
-        navigation.navigate("MapItem");
+        navigation.navigate("ProfilePage");
     };
 
     return (

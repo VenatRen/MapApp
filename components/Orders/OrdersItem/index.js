@@ -9,12 +9,12 @@ const OrdersItem = (props) => {
 
     return (
         <View style={styles.mainContainer}>
-            <OurText style={styles.fieldText}>Order №2421</OurText>
+            <OurText style={styles.fieldText}>Заказ #2421</OurText>
             <View style={styles.itemContainer}>
                 <View style={styles.infoContainer}>
-                    <OurText style={styles.text}>От: Вася Пупкин</OurText>
-                    <OurText style={styles.text}>Куда: Туда</OurText>
-                    <OurText style={styles.text}>Время доставки: 00:00</OurText>
+                    <OurText style={styles.text}>Клиент: Вася Пупкин</OurText>
+                    <OurText style={styles.text}>Адрес: Туда</OurText>
+                    <OurText style={styles.text}>Дата: Май 27, 2021</OurText>
                 </View>
                 <TouchableOpacity style={styles.acceptContainer}>
                     <OurText style={styles.acceptButton}>Acccept</OurText>

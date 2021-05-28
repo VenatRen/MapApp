@@ -4,6 +4,7 @@ import Login from "./components/Login/Login";
 import MapItem from "./MapItem";
 import Register from "./components/Register/Register";
 import Orders from "./components/Orders/Orders"
+import ProfilePage from "./components/ProfilePage/index"
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -31,6 +32,9 @@ const AppStackNavigator = (props) => {
             <Screen
                 name="Orders"
                 component={Orders} />
+            <Screen
+                name="ProfilePage"
+                component={ProfilePage} />
         </Navigator>
     );
 };

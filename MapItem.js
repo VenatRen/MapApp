@@ -7,22 +7,18 @@ import { dispatchContext } from './contexts';
 import { AddToast } from "./actions";
 import { STORE_ADDRESS } from "./utils/config";
 import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "./components/Header/index";
-
-
-
-
+import { gql } from "@apollo/client";
 
 
 const MapItem = (props) => {
 
   const [errorMsg, setErrorMsg] = useState(null);
 
-
   const { navigation } = props;
 
 
-  const [latitude, setLatitude] = useState(44.04444);
-  const [longitude, setLongitude] = useState(42.86056);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
 
   const [marker, setMarker] = useState({
     latitude, longitude
@@ -54,21 +50,20 @@ const MapItem = (props) => {
   }, [navigation]);
 
 
-
-
   useEffect(() => {
     (async () => {
-      const { status } = await Location.requestPermissionsAsync({ accuracy: Location.Accuracy.High });
+      const { status } = await Location.requestPermissionsAsync();
       const detectedLocation = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
+
       if (status == 'granted') {
+
         fetch(`${STORE_ADDRESS}osmand/?lat=${detectedLocation.coords.latitude}
         &lon=${detectedLocation.coords.longitude}
         &timestamp={2}&altitude={4}&speed={5}&bearing={6}
-        &username=${username}&key=bfb7248d&track=live`)
+        &username=${username}&key=bfb7248d`)
       }
       else {
         const toast = {
-
           text: "Permission to access location was denied",
           duration: 7000,
           color: "#499eda",
@@ -77,6 +72,7 @@ const MapItem = (props) => {
         dispatch(AddToast(toast, "MAP_ERROR"));
         return;
       }
+
 
       setLatitude(detectedLocation.coords.latitude);
       setLongitude(detectedLocation.coords.longitude);
@@ -91,6 +87,8 @@ const MapItem = (props) => {
       });
       setLoaded(true);
 
+
+
     })();
   }, []);
 
@@ -100,6 +98,8 @@ const MapItem = (props) => {
   }
 
   const urlTemplate = "http://c.tile.openstreetmap.org/{z}/{x}/{y}.png";
+
+
 
 
   return (
