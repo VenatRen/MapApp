@@ -1,11 +1,17 @@
 import React, { useLayoutEffect } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, FlatList } from 'react-native';
 import styles from "./styles";
 import OrdersItem from "./OrdersItem";
 import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "../../components/Header/index";
 
-const Orders = (props) => {
+const Orders = (props, data) => {
 
+
+    const renderItemsBlock = ({item, index}) => {
+        return (
+            <OrderItem navigation={navigation} data={item}/>
+        );
+    };
 
     const { navigation } = props;
 
@@ -21,9 +27,11 @@ const Orders = (props) => {
     }, [navigation]);
 
     return (
-        <ScrollView style={styles.mainContainer}>
-            <OrdersItem onPress={() => navigation.navigate('MapItem')} />
-        </ScrollView>
+        <FlatList
+            data={data}
+            renderItem={renderItemsBlock}
+            keyExtractor={(item, index) => String(index)}
+        />
     );
 
 }

@@ -16,7 +16,6 @@ const MapItem = (props) => {
 
   const { navigation } = props;
 
-
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
 
@@ -35,7 +34,7 @@ const MapItem = (props) => {
 
   const dispatch = useContext(dispatchContext);
 
-  const username = "admin"
+  const username = "alx33"
 
 
   useLayoutEffect(() => {
@@ -52,11 +51,12 @@ const MapItem = (props) => {
 
   useEffect(() => {
     (async () => {
+
       const { status } = await Location.requestPermissionsAsync();
+
       const detectedLocation = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
 
       if (status == 'granted') {
-
         fetch(`${STORE_ADDRESS}osmand/?lat=${detectedLocation.coords.latitude}
         &lon=${detectedLocation.coords.longitude}
         &timestamp={2}&altitude={4}&speed={5}&bearing={6}
@@ -68,7 +68,6 @@ const MapItem = (props) => {
           duration: 7000,
           color: "#499eda",
         }
-
         dispatch(AddToast(toast, "MAP_ERROR"));
         return;
       }
