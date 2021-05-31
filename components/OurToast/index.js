@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { KeyboardAvoidingView } from "react-native";
-import { stateContext } from "../../contexts";
+import { useSelector } from "react-redux";
 import ToastItem from "./ToastItem";
 import styles from "./styles";
 
 const OurToast = (props) => {
-    const state = useContext(stateContext);
-    const toasts = Array.from(state.toasts.values());
+    const state = useSelector(state=>state);
+    const toasts = Array.from(state.toastReducer.toastList.values());
 
     return (
         <KeyboardAvoidingView behavior={"padding"} pointerEvents="box-none" style={styles.mainContainer}>

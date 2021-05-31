@@ -2,8 +2,8 @@ import React, {useState, useLayoutEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity } from 'react-native';
 import styles from "./styles";
-import OurTextField from "../OurTextField";
-import { HeaderBackButton, HeaderTitle} from "../../components/Header/index";
+import OurTextField from "../../OurTextField";
+import { HeaderBackButton, HeaderTitle} from "../../Header/index";
 
 export default function Register(props) {
 

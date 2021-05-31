@@ -1,19 +1,15 @@
 import React, { useLayoutEffect } from 'react';
 import { ScrollView, FlatList } from 'react-native';
-import styles from "./styles";
-import OrdersItem from "./OrdersItem";
-import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "../../components/Header/index";
+import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "../../Header/index";
+import { GET_ORDERS_LIST } from "../../../apollo/queries";
+import { useQuery } from "@apollo/client";
 
-const Orders = (props, data) => {
+const Orders = (props) => {
 
 
-    const renderItemsBlock = ({item, index}) => {
-        return (
-            <OrderItem navigation={navigation} data={item}/>
-        );
-    };
 
     const { navigation } = props;
+    const abortController = new AbortController();
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -26,10 +22,16 @@ const Orders = (props, data) => {
         });
     }, [navigation]);
 
+    const { data } = useQuery(GET_ORDERS_LIST);
+
+
+    console.log(data);
+
     return (
         <FlatList
-            data={data}
-            renderItem={renderItemsBlock}
+            data={data?.orders?.nodes}
+            renderItem={({ item }) => <CategoryItem navigation={navigation}
+                date={item.date} />}
             keyExtractor={(item, index) => String(index)}
         />
     );

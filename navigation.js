@@ -1,9 +1,9 @@
 import React from "react";
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
-import Login from "./components/Login/Login";
+import Login from "./components/pages/Login/Login";
 import MapItem from "./MapItem";
-import Register from "./components/Register/Register";
-import Orders from "./components/Orders/Orders"
+import Register from "./components/pages/Register/Register";
+import Orders from "./components/pages/Orders/Orders"
 import ProfilePage from "./components/ProfilePage/index"
 
 const { Navigator, Screen } = createNativeStackNavigator();
