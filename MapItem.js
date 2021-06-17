@@ -7,18 +7,14 @@ import { dispatchContext } from './contexts';
 import { AddToast } from "./actions";
 import { STORE_ADDRESS } from "./utils/config";
 import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "./components/Header/index";
-import { gql } from "@apollo/client";
-
 
 const MapItem = (props) => {
 
   const [errorMsg, setErrorMsg] = useState(null);
-
   const { navigation } = props;
-
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-
+  
   const [marker, setMarker] = useState({
     latitude, longitude
   })
@@ -36,7 +32,6 @@ const MapItem = (props) => {
 
   const username = "alx33"
 
-
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: (props) => <HeaderBackButton navigation={navigation} />,
@@ -48,17 +43,13 @@ const MapItem = (props) => {
     });
   }, [navigation]);
 
-
   useEffect(() => {
     (async () => {
 
       const { status } = await Location.requestPermissionsAsync();
 
-      const detectedLocation = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
-
       if (status == 'granted') {
-        fetch(`${STORE_ADDRESS}osmand/?lat=${detectedLocation.coords.latitude}
-        &lon=${detectedLocation.coords.longitude}
+        fetch(`${STORE_ADDRESS}osmand/?lat=${latitude}&lon=${longitude}
         &timestamp={2}&altitude={4}&speed={5}&bearing={6}
         &username=${username}&key=bfb7248d`)
       }
@@ -72,6 +63,7 @@ const MapItem = (props) => {
         return;
       }
 
+      const detectedLocation = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
 
       setLatitude(detectedLocation.coords.latitude);
       setLongitude(detectedLocation.coords.longitude);
@@ -86,20 +78,14 @@ const MapItem = (props) => {
       });
       setLoaded(true);
 
-
-
     })();
   }, []);
-
 
   if (errorMsg) {
     console.log("Error", errorMsg)
   }
 
   const urlTemplate = "http://c.tile.openstreetmap.org/{z}/{x}/{y}.png";
-
-
-
 
   return (
     <View style={styles.container}>
@@ -139,9 +125,6 @@ const MapItem = (props) => {
   );
 
 }
-
-
-
 
 const styles = StyleSheet.create({
   container: {
