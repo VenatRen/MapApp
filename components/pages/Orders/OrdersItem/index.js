@@ -5,16 +5,16 @@ import styles from "./styles";
 
 const OrdersItem = (props) => {
 
-    const { onPress, date } = props;
+    const { onPress, number, client } = props;
 
     return (
         <View style={styles.mainContainer}>
-            <OurText style={styles.fieldText}>Заказ #2421</OurText>
+            <OurText style={styles.fieldText}>Заказ №{number}</OurText>
             <View style={styles.itemContainer}>
                 <View style={styles.infoContainer}>
-                    <OurText style={styles.text}>Клиент: Вася Пупкин</OurText>
+                    <OurText style={styles.text}>Клиент:{client}</OurText>
                     <OurText style={styles.text}>Адрес: Туда</OurText>
-                    <OurText style={styles.text}>{date}</OurText>
+                    <OurText style={styles.text}>Дата: 01/01/2001</OurText>
                 </View>
                 <TouchableOpacity style={styles.acceptContainer}>
                     <OurText style={styles.acceptButton}>Acccept</OurText>
