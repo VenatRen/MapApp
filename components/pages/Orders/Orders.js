@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { FlatList } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
-import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "../../Header/index";
+import { HeaderBackButton, HeaderTitle, HeaderLogOutButton } from "../../Header/index";
 import OrdersItem from "./OrdersItem/index";
 import styles from "./styles";
 
@@ -45,7 +45,7 @@ const Orders = (props) => {
         navigation.setOptions({
             headerLeft: (props) => <HeaderBackButton navigation={navigation} />,
             headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Orders"} />,
-            headerRight: (props) => <HeaderProfieButton navigation={navigation} />,
+            headerRight: (props) => <HeaderLogOutButton navigation={navigation} />,
             headerStyle: {
                 backgroundColor: gradStart,
             },

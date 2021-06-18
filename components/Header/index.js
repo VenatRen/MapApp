@@ -38,17 +38,17 @@ export const HeaderTitle = (props) => {
     );
 };
 
-export const HeaderProfieButton = (props) => {
+export const HeaderLogOutButton = (props) => {
     const { navigation } = props;
 
-    const goToProfile = (e) => {
-        navigation.navigate("ProfilePage");
+    const goToLogOut = (e) => {
+        navigation.navigate("Login");
     };
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={goToProfile}>
-                <OurText>Profile</OurText>
+            <TouchableOpacity onPress={goToLogOut}>
+                <OurText>LogOut</OurText>
             </TouchableOpacity>
         </View>
     );
@@ -69,7 +69,7 @@ const Header = (props) => {
             <View style={styles.container}>
                 <HeaderBackButton />
                 <HeaderTitle title={title} />
-                <HeaderProfieButton />
+                <HeaderLogOutButton />
             </View>
         </>
     );

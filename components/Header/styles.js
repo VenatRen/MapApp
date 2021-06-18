@@ -1,5 +1,4 @@
 import { Dimensions, StyleSheet } from "react-native";
-import Constants from "expo-constants";
 
 const styles = StyleSheet.create({
     container: {
@@ -20,6 +19,7 @@ const styles = StyleSheet.create({
     titleContainer: {},
     title: {
         fontSize: 25,
+        color: "#fff",
         textAlign: "center",
     },
     cartContainer: {

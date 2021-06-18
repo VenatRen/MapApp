@@ -13,15 +13,15 @@ export default function Login(props) {
   const validateForm = (value) => {
     return value.trim() !== "";
   };
-  
-  const [gradStart, gradMiddle, gradEnd] = ["#B0E8E4", "#86A8E7","#7F7FD5"];
+
+  const [gradStart, gradMiddle, gradEnd] = ["#B0E8E4", "#86A8E7", "#7F7FD5"];
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerCenter: (props) => <HeaderTitle navigation={navigation} title={"login"} />,
       headerStyle: {
         backgroundColor: gradStart,
-    },
+      },
     });
   }, [navigation]);
 

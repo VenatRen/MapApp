@@ -2,11 +2,14 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     mainContainer: {
-        marginBottom: 15,
-        marginTop: 15,
+        marginBottom: 5,
+        marginTop: 5,
+    },
+    titleContainer: {
+        padding: 7,
     },
     infoContainer: {
-        width: "60%",
+        width: "100%",
     },
     itemContainer: {
         padding: 8,
@@ -14,39 +17,58 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     fieldText: {
-        fontSize: 20,
+        color: "#fff",
+        fontSize: 26,
     },
     text: {
-        fontSize: 16,
+        color: "#fff",
+        fontSize: 24,
         paddingLeft: 16,
     },
-    acceptContainer: {
-        marginBottom: 5,
+    orderButtonContainer: {
+        marginBottom: 15,
         marginTop: 5,
-        padding: 5,
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-around",
+    },
+    acceptContainer: {
+        width: "40%",
+        padding: 18,
         borderWidth: .5,
-        borderRadius: 5,
-        backgroundColor: '#fff',
+        borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    acceptButton: {
+        color: "green",
+        fontSize: 16,
     },
     denyContainer: {
-        marginBottom: 5,
-        marginTop: 5,
-        padding: 5,
+        width: "40%",
+        padding: 18,
         borderWidth: .5,
-        borderRadius: 5,
-        backgroundColor: '#fff',
+        borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
     },
-    showContainer: {
+    denyButton:{
+        color: "red",
+        fontSize: 16,
+    },
+    showContainer: {        
+        backgroundColor: '#FFFA',
         padding: 8,
         borderWidth: .5,
         borderRadius: 10,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    showButton: {
+        fontSize: 16,
+        color: "#fff",
     },
 });
 

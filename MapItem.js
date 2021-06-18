@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { dispatchContext } from './contexts';
 import { AddToast } from "./actions";
 import { STORE_ADDRESS } from "./utils/config";
-import { HeaderBackButton, HeaderTitle, HeaderProfieButton } from "./components/Header/index";
+import { HeaderBackButton, HeaderTitle, HeaderLogOutButton } from "./components/Header/index";
 
 const MapItem = (props) => {
 
@@ -36,7 +36,7 @@ const MapItem = (props) => {
     navigation.setOptions({
       headerLeft: (props) => <HeaderBackButton navigation={navigation} />,
       headerCenter: (props) => <HeaderTitle navigation={navigation} title={"Map"} />,
-      headerRight: (props) => <HeaderProfieButton navigation={navigation} />,
+      headerRight: (props) => <HeaderLogOutButton navigation={navigation} />,
       headerStyle: {
         backgroundColor: "lightblue",
       },
