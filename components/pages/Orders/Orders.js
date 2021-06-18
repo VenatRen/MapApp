@@ -17,18 +17,19 @@ const Orders = (props) => {
         },
         {
             id: "2",
+            orderNumber: "348",
+            client: "Klaun Krasti",
+            addres: "2135 W CERMAK RD 60608",
+            date: "2021-06-16",
+        },
+        {
+            id: "3",
             orderNumber: "13",
-            client: "Hello2",
+            client: "Name Name",
             addres: "Here",
             date: "01/01/2001",
         },
         {
-            id: "3",
-            orderNumber: "14",
-            client: "Hello3",
-            addres: "Here",
-            date: "01/01/2001",
-        }, {
             id: "4",
             orderNumber: "14",
             client: "Hello4",

@@ -44,12 +44,12 @@ const styles = StyleSheet.create({
         color: "#fff",
         textShadowColor: "#000",
         textShadowRadius: 1,
-        textShadowOffset: {width: .5, height: .5},
+        textShadowOffset: { width: .5, height: .5 },
     },
     priceText: {
         color: "#fff",
         textShadowRadius: 1,
-        textShadowOffset: {width: 1, height: 1},
+        textShadowOffset: { width: 1, height: 1 },
     }
 });
 export default styles;

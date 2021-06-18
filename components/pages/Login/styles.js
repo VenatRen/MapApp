@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+
   background: {
     position: "absolute",
     left: 0,
@@ -9,33 +10,56 @@ const styles = StyleSheet.create({
     bottom: 0,
     minHeight: "100%",
   },
-  container: {
+  mainContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "space-between",
   },
-  input: {
-    borderRadius: 4,
-    height: 60,
-    width: 250,
-    marginBottom: 15,
-    marginTop: 10,
+  topContainer: {
+    height: "100%",
+    width: "100%",
+    justifyContent: "space-between",
+    paddingTop: 10,
   },
-  buttonContainer: {
-    flexDirection: "row",
+  scrollContainer: {
+    paddingHorizontal: 10,
+  },
+  title: {
+    paddingVertical: 20,
+    color: "#fff",
+    fontSize: 28,
+    textAlign: "center",
+  },
+  note: {
+    color: "#fffd",
+    fontSize: 22,
+    textAlign: "center",
+  },
+  bottomContainer: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingBottom: 10,
+    paddingHorizontal: 10,
   },
   button: {
-    marginHorizontal: 5,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    marginVertical: 10,
+    elevation: 1,
+    width: "100%",
+  },
+  buttonContainer: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingBottom: 10,
+    paddingHorizontal: 10,
+  },
+  button: {
+    padding: 8,
+    marginVertical: 10,
+    elevation: 1,
+    width: "100%",
     alignItems: 'center',
     borderRadius: 4,
     backgroundColor: "#fff",
     borderWidth: 1,
-    marginBottom: 5,
-    marginTop: 5,
-    height: 30,
-    width: 100,
   },
 });
 

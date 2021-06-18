@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from "./styles";
 import OurTextField from "../../OurTextField";
@@ -31,34 +30,29 @@ export default function Login(props) {
         style={styles.background}
         locations={[0, .8, 1]}
         colors={[gradStart, gradMiddle, gradEnd]} />
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <View style={styles.input}>
-          <OurTextField placeholder="registerPageFormUsername"
-            onValidate={validateForm}
-            autoCompleteType="username"
-            model={[name, setName]} />
-        </View>
-        <View style={styles.input}>
-          <OurTextField placeholder="registerPageFormPassword"
-            autoCapitalize="none"
-            autoCompleteType="password"
-            secureTextEntry={true}
-            onValidate={validateForm}
-            model={[password, setPassword]} />
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            title="Confirm"
-            style={styles.button}
-            onPress={() => navigation.navigate('Orders')}
-          ><Text>Confirm</Text></TouchableOpacity>
-          <TouchableOpacity
-            title="Register"
-            style={styles.button}
-            onPress={() => navigation.navigate('Register')}
-          ><Text>Register</Text></TouchableOpacity>
-        </View>
+      <View style={styles.mainContainer}>
+        <KeyboardAvoidingView style={styles.topContainer}>
+          <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <OurTextField placeholder="registerPageFormUsername"
+              onValidate={validateForm}
+              autoCompleteType="username"
+              model={[name, setName]} />
+            <OurTextField placeholder="registerPageFormPassword"
+              autoCapitalize="none"
+              autoCompleteType="password"
+              secureTextEntry={true}
+              onValidate={validateForm}
+              model={[password, setPassword]} />
+          </ScrollView>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              title="Confirm"
+              style={styles.button}
+              onPress={() => navigation.navigate('Orders')}>
+              <Text>Confirm</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
       </View>
     </>
   );
