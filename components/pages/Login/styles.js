@@ -23,28 +23,6 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingHorizontal: 10,
   },
-  title: {
-    paddingVertical: 20,
-    color: "#fff",
-    fontSize: 28,
-    textAlign: "center",
-  },
-  note: {
-    color: "#fffd",
-    fontSize: 22,
-    textAlign: "center",
-  },
-  bottomContainer: {
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingBottom: 10,
-    paddingHorizontal: 10,
-  },
-  button: {
-    marginVertical: 10,
-    elevation: 1,
-    width: "100%",
-  },
   buttonContainer: {
     alignItems: "center",
     justifyContent: "space-between",

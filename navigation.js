@@ -2,7 +2,8 @@ import React from "react";
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import Login from "./components/pages/Login/Login";
 import MapItem from "./MapItem";
-import Orders from "./components/pages/Orders/Orders"
+import Orders from "./components/pages/Orders/Orders";
+import OrderSet from "./components/pages/OrderSet/OrderSet";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -27,6 +28,10 @@ const AppStackNavigator = (props) => {
             <Screen
                 name="Orders"
                 component={Orders} />
+            <Screen 
+                name="OrderSet"
+                component={OrderSet}
+            />
         </Navigator>
     );
 };

@@ -11,9 +11,11 @@ const Orders = (props) => {
         {
             id: "1",
             orderNumber: "12",
-            client: "Hello1",
-            addres: "Here",
+            orderStatus: "Ожидание курьера",
+            client: "Klaun Krasti",
+            addres: "2135 W CERMAK RD 60608",
             date: "01/01/2001",
+            telephone: "+7 928-325-05-81",
         },
         {
             id: "2",
@@ -63,9 +65,11 @@ const Orders = (props) => {
                 data={DATA}
                 renderItem={({ item }) =>
                     <OrdersItem
-                        onPress={() => navigation.navigate('MapItem')}
+                        goToMap={() => navigation.navigate('MapItem')}
+                        goOrderSet={()=> navigation.navigate('OrderSet')}
                         orderNumber={item.orderNumber} client={item.client}
-                        addres={item.addres} date={item.date} />
+                        addres={item.addres} date={item.date}
+                        telephone={item.telephone} orderStatus={item.orderStatus}/>
                 }
                 keyExtractor={(item) => item.id}
             />

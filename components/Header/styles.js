@@ -8,7 +8,14 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     backContainer: {
+        width: 40.5,
+        height: 49.5,
         marginLeft: 10,
+    },
+    SignOutContainer: {
+        width: 40.5,
+        height: 49.5,
+        marginRight: 17,
     },
     iconBack: {
         width: 49,

@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         padding: 7,
+        width: "100%",
     },
     infoContainer: {
         width: "100%",
@@ -26,7 +27,10 @@ const styles = StyleSheet.create({
     fieldText: {
         color: "#fff",
         fontSize: 26,
-        borderBottomWidth: .5,
+    },
+    statusText: {
+        color: "#fff",
+        fontSize: 26,
     },
     text: {
         color: "#fff",
@@ -35,15 +39,15 @@ const styles = StyleSheet.create({
         padding: 8,
     },
     orderButtonContainer: {
-        marginBottom: 15,
-        marginTop: 5,
+        padding: 7,
         flexDirection: "row",
         alignItems: 'center',
-        justifyContent: "space-around",
+        justifyContent: "space-between",
+        width: "100%",
     },
     acceptContainer: {
         width: "40%",
-        padding: 18,
+        padding: 8,
         borderWidth: .5,
         borderRadius: 4,
         alignItems: 'center',
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
     },
     denyContainer: {
         width: "40%",
-        padding: 18,
+        padding: 8,
         borderWidth: .5,
         borderRadius: 4,
         alignItems: 'center',
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     showContainer: {
-        backgroundColor: '#FFFA',
+        backgroundColor: '#FFF',
         padding: 8,
         marginHorizontal: 8,
         borderWidth: .5,
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
     },
     showButton: {
         fontSize: 16,
-        color: "#fff",
+        color: "black",
     },
 });
 

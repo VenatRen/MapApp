@@ -2,6 +2,8 @@ import React from "react";
 import { View, TouchableOpacity, LayoutAnimation } from "react-native";
 import OurText from "../../components/OurText";
 import styles from "./styles.js";
+import OurIconButton from "../OurIconButton/index";
+import { faChevronLeft, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 export const HeaderBackButton = (props) => {
     const { navigation } = props;
@@ -12,9 +14,9 @@ export const HeaderBackButton = (props) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={goBack}>
-                <OurText>Back</OurText>
-            </TouchableOpacity>
+            <View style={styles.backContainer}>
+                <OurIconButton icon={faChevronLeft} size={49} onPress={goBack}/>
+            </View>
         </View>
     );
 };
@@ -47,9 +49,9 @@ export const HeaderLogOutButton = (props) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={goToLogOut}>
-                <OurText>LogOut</OurText>
-            </TouchableOpacity>
+            <View style={styles.SignOutContainer}>
+                <OurIconButton icon={faSignOutAlt} size={49} onPress={goToLogOut}/>
+            </View>
         </View>
     );
 };
